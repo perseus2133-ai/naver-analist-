@@ -173,18 +173,13 @@ def main():
     # Controls
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        with st.container():
-            st.markdown("""
-                <div style="background: rgba(30,41,59,0.5); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
-                """, unsafe_allow_html=True)
-            search_days = st.select_slider(
-                "분석 기간 선택",
-                options=[3, 5, 10],
-                value=5,
-                format_func=lambda x: f"최근 {x}일"
-            )
-            search_btn = st.button("🔍 강력 종목 발굴하기 (Search)")
-            st.markdown("</div>", unsafe_allow_html=True)
+        search_days = st.select_slider(
+            "분석 기간 선택",
+            options=[3, 5, 10],
+            value=5,
+            format_func=lambda x: f"최근 {x}일"
+        )
+        search_btn = st.button("🔍 강력 종목 발굴하기 (Search)")
             
     st.markdown("<br><br>", unsafe_allow_html=True)
 
