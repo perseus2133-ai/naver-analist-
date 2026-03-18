@@ -16,12 +16,23 @@ def inject_custom_css():
     st.markdown("""
         <style>
         /* Global Background & Typography */
-        html, body, [class*="css"] {
+        .stApp, [data-testid="stAppViewContainer"], [data-testid="stHeader"],
+        section[data-testid="stSidebar"], .main .block-container {
             font-family: 'Inter', 'Noto Sans KR', sans-serif;
-            background-color: #0f172a; /* Slate 900 */
-            color: #f8fafc; /* Slate 50 */
+            background-color: #0f172a !important; /* Slate 900 */
+            color: #f8fafc !important; /* Slate 50 */
         }
-        
+
+        /* Streamlit 기본 요소 텍스트 색상 강제 적용 */
+        .stApp label, .stApp .stMarkdown, .stApp p, .stApp span, .stApp h1, .stApp h2, .stApp h3 {
+            color: #f8fafc !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* 3D Title Styling */
         .main-title {
             text-align: center;
@@ -30,8 +41,8 @@ def inject_custom_css():
             background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.5rem;
-            text-shadow: 0px 4px 15px rgba(129, 140, 248, 0.4);
             animation: fadeIn 1s ease-in-out;
         }
         
