@@ -184,7 +184,7 @@ def main():
     st.markdown("<br><br>", unsafe_allow_html=True)
 
     if search_btn:
-        with st.spinner("네이버 증권 리버스를 탐색 중입니다..."):
+        with st.spinner("네이버 증권 리서치를 탐색 중입니다..."):
             reports_data = get_recent_reports(days=search_days)
             
         if not reports_data:
